@@ -1,4 +1,4 @@
-package Severlt;
+package servlet;
 
 import dao.UsuarioDAO;
 import java.io.IOException;
@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Usuario;
 
-@WebServlet(name = "CadastarServlet", urlPatterns = {"/CadastrarUsuario"})
-public class CadastarServlet extends HttpServlet {
+@WebServlet(name = "CadastrarServlet", urlPatterns = {"/CadastrarUsuario"})
+public class CadastrarServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

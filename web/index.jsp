@@ -17,7 +17,7 @@
             <a href="CadastrarUsuario.jsp">Cadastrar Usuário</a>
         </p>
         <p>
-            <a href="Listar.jsp">Listar Usuarios Cadastrados</a>
+            <a href="Listar">Listar Usuarios Cadastrados</a>
         </p>
         <p>
             <a href="Procurar.jsp">Procurar Usuarios</a>

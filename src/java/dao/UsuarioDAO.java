@@ -2,13 +2,11 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import model.Usuario;
 
-/**
- *
- * @author Aluno10
- */
 public class UsuarioDAO {
 
     public static boolean inserirUsuario(Usuario u) {
@@ -32,20 +30,33 @@ public class UsuarioDAO {
         }
 
         return sucesso;
-
     }
 
-    public static ArrayList<Usuarios> buscarUsuarios() {
+    public static ArrayList<Usuario> buscarUsuarios() {
         ArrayList<Usuario> usuarios = new ArrayList();
 
-        try (Connection c = Conexao.abriConexao()) {
-            PreparedStatement stmt = c.prepareStatement()
+        try (Connection c = Conexao1.abrirConexao()) {
+            PreparedStatement stmt = c.prepareStatement("SELECT * FROM cadastro_usuarios.usuario");
 
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String email = rs.getString("email");
+                String senha = rs.getString("senha");
+
+                Usuario u = new Usuario();
+                u.setId(id);
+                u.setEmail(email);
+                u.setSenha(senha);
+
+                usuarios.add(u);
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
+        return usuarios;
     }
-
 }
